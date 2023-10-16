@@ -1,6 +1,7 @@
 class Router
-  def initialize(controller)
-    @controller = controller
+  def initialize(meals_controller, customers_controller)
+    @meals_controller = meals_controller
+    @customers_controller = customers_controller
     @running    = true
   end
 
@@ -20,10 +21,13 @@ class Router
 
   def route_action(action)
     case action
-    # when 1 then @controller.list
+    when 1 then @meals_controller.list
+    when 2 then @meals_controller.add
+    when 3 then @customers_controller.list
+    when 4 then @customers_controller.add
     when 9 then stop
     else
-      puts "Please press 1, 2, 3 or 4"
+      puts "Please press 1 ... 9"
     end
   end
 
